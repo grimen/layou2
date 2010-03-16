@@ -1,0 +1,9 @@
+TODO
+
+* String#textilize
+
+* refactor args.each {} thing in title/description/...
+
+* unit tests please, once and for all
+
+* test HTML <head> helpers
