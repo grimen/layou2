@@ -1,14 +1,14 @@
 # encoding: utf-8
 require 'rubygems'
+require 'bundler'
+Bundler.require
+$:.unshift File.dirname(__FILE__)
 
 ENV['RAILS_ENV'] = 'test'
 TEST_ORM = (ENV['ORM'] || :active_record).to_sym
 
 # ORM / Schema.
 require File.join(File.dirname(__FILE__), 'orm', TEST_ORM.to_s)
-
-gem 'test-unit', '1.2.3'
-require 'test/unit'
 
 begin
   require 'leftright'
