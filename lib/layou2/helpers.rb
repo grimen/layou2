@@ -6,8 +6,9 @@ module Layou2
     def title(*args, &block)
       options = args.extract_options!
       options[:meta] = false if options[:meta].nil?
-      options[:as] ||= :h1
+      options[:as] ||= ::Layou2.default_title_tag
 
+      # TODO: refactor
       (args ||= []).each do |arg|
         case arg
         when String then
@@ -16,20 +17,22 @@ module Layou2
           options[arg] = true
         end
       end
+
       title ||= capture_if_given(&block)
-      title = t('.title', options.except(:class, :meta, :as, :strip)) if title.blank? # I18n
+      title = t('.title', options.except(:class, :meta, :as, :strip)) if title.blank? # TODO: bottom-up I18n lookups
       title = title.textilize(:strip) if options[:textile]
       # TODO: meta(:title, title) if options.delete(:meta)
       options[:class] = [::Layou2.dom_classes[:title], options[:class]].compact.join(' ')
 
-      content_tag(options[:as] , title, options.slice(:class))
+      content_tag(options[:as] , title, options.slice(:class)) # TODO: Only :class?
     end
 
     def description(*args, &block)
       options = args.extract_options!
       options[:meta] = false if options[:meta].nil?
-      options[:as] ||= :p
+      options[:as] ||= ::Layou2.default_description_tag
 
+      # TODO: refactor
       (args ||= []).each do |arg|
         case arg
         when String then
@@ -40,19 +43,20 @@ module Layou2
       end
 
       description ||= capture_if_given(&block)
-      description = t('.description', options.except(:class, :meta, :as, :strip)) if description.blank? # I18n
+      description = t('.description', options.except(:class, :meta, :as, :strip)) if description.blank? # TODO: bottom-up I18n lookups
       description += options[:end_with] if options[:end_with] && description[-1,1] != options[:end_with]
       description = description.textilize(:strip) if options[:textile]
       # TODO: (:description, description) if options.delete(:meta)
       options[:class] = [::Layou2.dom_classes[:description], options[:class]].compact.join(' ')
 
-      content_tag(options[:as], description, options.slice(:class))
+      content_tag(options[:as], description, options.slice(:class)) # TODO: Only :class?
     end
 
     def keywords(*args, &block)
       options = args.extract_options!
       options[:meta] = false if options[:meta].nil?
 
+      # TODO: refactor
       (args ||= []).each do |arg|
         case arg
         when String then
@@ -63,10 +67,10 @@ module Layou2
       end
 
       keywords ||= capture_if_given(&block)
-      keywords = t('.keywords', options.except(:meta)) if keywords.blank? # I18n
+      keywords = t('.keywords', options.except(:meta)) if keywords.blank? # TODO: bottom-up I18n lookups
       # TODO: meta(:keywords, description) if options.delete(:meta)
 
-      # no view output
+      nil
     end
 
     def meta(*args)

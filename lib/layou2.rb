@@ -22,10 +22,18 @@ module Layou2
   NotImplementedYetError = Class.new(::NotImplementedError)
 
   DEFAULT_DOM_CLASSES = {:title => 'title', :description => 'description'}
+  DEFAULT_TITLE_TAG = :h1
+  DEFAULT_DESCRIPTION_TAG = :p
 
   # DOM selectors for easier manipulation of Layou2 titles using CSS/JavaScript.
   mattr_accessor :dom_classes
   @@dom_classes = DEFAULT_DOM_CLASSES
+
+  mattr_accessor :default_title_tag
+  @@default_title_tag = DEFAULT_TITLE_TAG
+
+  mattr_accessor :default_description_tag
+  @@default_description_tag = DEFAULT_DESCRIPTION_TAG
 
   class << self
 
