@@ -1,15 +1,22 @@
 TODO
 
-* String#textilize
+== HIGH-PRIO
 
-* refactor args.each {} thing in title/description/...
+* [COMPATABILITY]: Port generators to Rails 3 (railtie)
 
-* unit tests please, once and for all
 
-* test HTML <head> helpers
+== LOW-PRIO
 
-* bottom-up I18n lookup pattern, like Link2
+* [FEATURE]: String#textilize
 
-* refactor option-extraction for title/description/keywords
+* [REFACTOR]: args.each {} thing in title/description/...
 
-* accept more tag options than :class?
+* [TEST]: unit tests please, once and for all
+
+* [TEST]: test HTML <head> helpers
+
+* [FEATURE]: bottom-up I18n lookup pattern, like Link2
+
+* [REFACTOR]: option-extraction for title/description/keywords
+
+* [FEATURE]: accept more tag options than :class?

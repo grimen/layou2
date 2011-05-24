@@ -12,8 +12,8 @@ Gem::Specification.new do |s|
   s.summary     = %{The layout helpers.}
   s.description = s.summary
 
-  s.add_dependency 'activesupport', '~> 2.3.11'
-  s.add_dependency 'actionpack', '~> 2.3.11'
+  s.add_dependency 'activesupport', '>= 2.3.5'
+  s.add_dependency 'actionpack', '>= 2.3.5'
 
   s.add_development_dependency 'test-unit', '1.2.3'
   s.add_development_dependency 'mocha'
