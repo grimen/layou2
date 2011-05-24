@@ -7,3 +7,9 @@ TODO
 * unit tests please, once and for all
 
 * test HTML <head> helpers
+
+* bottom-up I18n lookup pattern, like Link2
+
+* refactor option-extraction for title/description/keywords
+
+* accept more tag options than :class?
